@@ -1,10 +1,13 @@
+
 vec3 coords = normal;
-//coords.y += uTime;
-vec3 noisePattern = vec3(snoise(coords));
-float pattern = wave(noisePattern);
+coords.y += uTime;
+vec3 noisePattern = vec3(snoise(coords / 1.5));
+float pattern = wave(noisePattern + uTime);
+
+// varyings
+vDisplacement = pattern;
 
 
-//vDisplacement = pattern;
 float displacement = vDisplacement / 3.0;
 
-//transformed += normalize( objectNormal ) * displacement;
+transformed += normalize(objectNormal) * displacement;
