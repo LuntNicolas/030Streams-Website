@@ -2,10 +2,26 @@
 import {words} from "../constants/index.js";
 import Button from "../components/Button.jsx";
 import {HeroExperience} from "../components/HeroModels/HeroExperience.jsx";
+import gsap from "gsap";
+import {useGSAP} from "@gsap/react";
 
 const Hero = () => {
+    useGSAP(() => {
+        gsap.fromTo('.hero-text h1',
+            {
+                y: 50,
+                opacity: 0
+            },
+            {
+                y: 0,
+                opacity: 1,
+                ease: "power2.inOut",
+                duration: 1.5,
+                stagger: 0.1,
+            },)
+    })
     return (
-        <section id="hero" className="relative overflow-hidden text-3xl">
+        <section id="hero" className="relative overflow-hidden">
             <div className="hero-layout">
                 { /* RIGHT */}
                 <header className="flex flex-col justify-center md:w-full w-screen md:px-20 px-5">
@@ -13,7 +29,7 @@ const Hero = () => {
                         <div className="hero-text">
                             <h1>030 Sessions</h1>
                             <h1>
-                                Unleash
+                                Unleash the
                                 <span className="slide">
                                     <span className="wrapper">
                                      {words.map((word, index) => (
@@ -30,9 +46,9 @@ const Hero = () => {
                             Welcome to the world of 030 sessions.
                         </p>
                         <Button
+                            text="View our work"
                             className="md:w-80 md:h-16 w-60 h-12"
                             id="button"
-                            text="View our work"
                         />
                     </div>
                 </header>

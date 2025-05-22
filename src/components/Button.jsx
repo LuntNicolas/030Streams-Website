@@ -1,6 +1,17 @@
 const Button = ({text, className, id}) => {
     return (
         <a
+            onClick={(e) => {
+                e.preventDefault();
+                const target = document.getElementById('work'); //target the section you want to scroll to
+
+                if (target && id) {
+                    const offset = window.innerHeight * 0.15;
+                    const top = target.getBoundingClientRect().top - window.scrollY - offset;
+
+                    window.scrollTo({top, behavior: 'smooth'});
+                }
+            }}
             className={`${className ?? ""} cta-wrapper`} // Add base + extra class names
         >
             <div className="cta-button group">

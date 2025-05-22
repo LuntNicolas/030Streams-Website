@@ -1,13 +1,16 @@
 import {Canvas} from "@react-three/fiber";
 import {OrbitControls} from "@react-three/drei";
+import {useMediaQuery} from "react-responsive";
 import AnimatedSphere from "../Three/AnimatedSphere.jsx";
+import HeroLights from "./HeroLights.jsx";
 
 export const HeroExperience = () => {
-    const isTablet = false;
+    const isMobile = useMediaQuery({query: "(max-width: 768px)"});
+    const isTablet = useMediaQuery({query: "(max-width: 1024px)"});
+
     return (
         <Canvas camera={{position: [0, 0, 10], fov: 45}}>
-            <ambientLight color="#4255ff" intensity={0.6}/>
-            <pointLight position={[5, 5, 5]} intensity={20}/>
+            <HeroLights/>
 
             <OrbitControls
                 enablePan={false}
@@ -16,7 +19,9 @@ export const HeroExperience = () => {
                 maxPolarAngle={Math.PI / 2}
             />
             <group
-                position={[0, -1, 0]}
+                scale={isMobile ? 0.7 : 1}
+                position={[0, 0, 0]}
+                rotation={[-5, -10, 0]}
             >
                 <AnimatedSphere/>
             </group>

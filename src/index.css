@@ -12,7 +12,7 @@ body {
     background-color: black;
     color: white;
     scroll-behavior: smooth;
-    font-family: "Mona Sans", sans-serif;
+    font-family: "Sora", sans-serif;
 }
 
 section {
@@ -20,7 +20,7 @@ section {
 }
 
 @theme {
-    --font-sans: "Mona Sans", sans-serif;
+    --font-sans: "Sora", sans-serif;
     --color-white-50: #d9ecff;
     --color-black-50: #1c1c21;
     --color-black-100: #0e0e10;
@@ -30,6 +30,10 @@ section {
 }
 
 @layer utilities {
+    .translate-3d-z {
+        transform: translate3d(0, 0, -305dvh);
+    }
+
     .flex-center {
         @apply flex justify-center items-center;
     }
@@ -157,22 +161,31 @@ section {
         }
     }
 
-    .app-showcase {
-        @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center;
+    .app-showcas {
+        @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center transition-none transform-3d perspective-distant;
 
-        .showcaselayout {
-            @apply flex xl:flex-row flex-col gap-10 justify-between;
+        .showcaselayot {
+            @apply flex flex-col gap-40 ;
         }
 
-        .first-project-wrapper {
-            @apply h-full flex flex-col justify-between xl:w-[60%];
+
+        .zoom-wrapper {
+            @apply relative w-[100vw] h-[100vw] overflow-hidden transform-3d perspective-[2200px];
+
+            h2 {
+                @apply text-lg md:text-xl lg:text-2xl font-semibold mt-5;
+            }
 
             .image-wrapper {
-                @apply xl:h-[70vh] md:h-[50vh] h-96 relative;
+                @apply xl:h-[50vh] md:h-[50vh] h-96 z-[1] transform-3d bottom-[15%] left-[5%];
 
                 img {
                     @apply w-full h-full object-cover rounded-xl absolute inset-0;
                 }
+            }
+
+            .text-wrapper {
+                @apply xl:h-[70vh] md:h-[50vh] h-96 w-full relative p-5;
             }
 
             .text-content {
@@ -187,22 +200,26 @@ section {
                 }
             }
         }
+    }
 
-        .project-list-wrapper {
-            @apply flex md:flex-row flex-col xl:flex-col gap-10 xl:w-[40%];
+    .app-showcase {
+        @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center;
+    }
 
-            .image-wrapper {
-                @apply xl:h-[37vh] md:h-52 lg:h-72 h-64 relative rounded-xl xl:px-5 2xl:px-12 py-0;
-            }
+    .zoom-right {
+        @apply relative h-full xl:w-[50%];
+    }
 
-            img {
-                @apply w-full h-full object-contain rounded-xl;
-            }
+    h2 {
+        @apply text-2xl md:text-3xl lg:text-4xl font-bold;
+    }
 
-            h2 {
-                @apply text-lg md:text-xl lg:text-2xl font-semibold mt-5;
-            }
-        }
+    .zoom-left {
+        @apply relative h-full w-full;
+    }
+
+    .showcase1 {
+        @apply xl:h-[70vh] md:h-[50vh] absolute rounded-xl;
     }
 
     .cta-wrapper {
@@ -228,7 +245,7 @@ section {
             -translate-y-1/2 flex justify-center items-center overflow-hidden;
 
             img {
-                @apply size-5 animate-bounce;
+                @apply size-5 xl:translate-y-32 translate-y-0 animate-bounce group-hover:translate-y-0 transition-all duration-500;
             }
         }
     }
