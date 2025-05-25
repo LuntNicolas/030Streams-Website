@@ -3,8 +3,8 @@ import {useFrame} from "@react-three/fiber";
 import {EffectComposer, Bloom} from "@react-three/postprocessing";
 import {BlendFunction} from "postprocessing";
 
-import vertexShader from "../../shader/vertex.glsl";
-import fragmentShader from "../../shader/fragment.glsl";
+// import vertexShader from "../../shader/vertex.glsl";
+// import fragmentShader from "../../shader/fragment.glsl";
 
 import vertexPars from "../../shader/vertex_pars.glsl";
 import vertexMain from "../../shader/vertex_main.glsl";
@@ -12,10 +12,10 @@ import fragmentPars from "../../shader/fragment_pars.glsl";
 import fragmentMain from "../../shader/fragment_main.glsl";
 
 const AnimatedSphere = () => {
-    const ref = useRef();
+    const refA = useRef(null);
 
     useFrame(({clock}) => {
-        const shader = ref.current?.userData?.shader;
+        const shader = refA.current?.userData?.shader;
         if (shader) {
             shader.uniforms.uTime.value = clock.getElapsedTime() * 0.1;
         }
@@ -36,12 +36,12 @@ const AnimatedSphere = () => {
                 <icosahedronGeometry args={[2, 100]}/>
                 {/* <meshStandardMaterial color="teal"/>*/}
                 <meshPhysicalMaterial
-                    ref={ref}
+                    ref={refA}
                     metalness={1}
                     roughness={0.5}
                     onBeforeCompile={(shader) => {
                         //storing a reference to the shader object
-                        ref.current.userData.shader = shader;
+                        refA.current.userData.shader = shader;
                         //uniforms
                         shader.uniforms.uTime = {value: 0};
 

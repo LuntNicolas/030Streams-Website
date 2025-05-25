@@ -1,27 +1,17 @@
 precision highp float;
 
-uniform float uTime;
+uniform float uTimeB;
 
-uniform float uWavesAmplitude;
-uniform float uWavesSpeed;
-uniform float uWavesFrequency;
-uniform float uWavesPersistence;
-uniform float uWavesLacunarity;
-uniform float uWavesIterations;
-
-varying vec3 vNormal;
-varying vec3 vWorldPosition;
 varying vec2 vUv;
+varying vec3 vWorldPosition;
+varying vec3 vNormal;
+
 
 //	Simplex 3D Noise
 //	by Ian McEwan, Stefan Gustavson (https://github.com/stegu/webgl-noise)
 //
-vec4 permute(vec4 x) {
-    return mod(((x * 34.0) + 1.0) * x, 289.0);
-}
-vec4 taylorInvSqrt(vec4 r) {
-    return 1.79284291400159 - 0.85373472095314 * r;
-}
+vec4 permute(vec4 x){ return mod(((x*34.0)+1.0)*x, 289.0); }
+vec4 taylorInvSqrt(vec4 r){ return 1.79284291400159 - 0.85373472095314 * r; }
 
 // Simplex 2D noise
 //
@@ -53,42 +43,37 @@ float snoise(vec2 v) {
     return 130.0 * dot(m, g);
 }
 
-// Helper function to calculate elevation at any point
-float getElevation(float x, float z) {
-    vec2 pos = vec2(x, z);
+float calculateElevation(vec2 pos) {
+    int wavesIterations = 3;//more iterations -> noise gets higher (bigger waves)
+    float wavesFrequency = 1.5;// frequency of waves
+    float wavesLacunarity = 2.0;
+    float amplitude = 0.1;
+    float persistance = 0.3;//more frequency noise
 
-    float elevation = 0.0;
-    float amplitude = 1.0;
-    float frequency = uWavesFrequency;
-    vec2 p = pos.xy;
-
-    for (float i = 0.0; i < uWavesIterations; i++) {
-        float noiseValue = snoise(p * frequency + uTime * uWavesSpeed);
-        elevation += amplitude * noiseValue;
-        amplitude *= uWavesPersistence;
-        frequency *= uWavesLacunarity;
+    float total = 0.0;
+    for (int i = 0; i < wavesIterations; i++) {
+        total += amplitude * snoise(wavesFrequency * pos + 0.2 * uTimeB);//  WavesSpeed
+        amplitude *= persistance;
+        wavesFrequency *= wavesLacunarity;
     }
-
-    elevation *= uWavesAmplitude;
-
-    return elevation;
+    return total;
 }
 
 void main() {
     vUv = uv;
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
 
-    float elevation = getElevation(modelPosition.x, modelPosition.z);
+    float elevation = calculateElevation(modelPosition.xz);
     modelPosition.y += elevation;
 
-    // Calculate normal using partial derivatives
     float eps = 0.001;
-    vec3 tangent = normalize(vec3(eps, getElevation(modelPosition.x - eps, modelPosition.z) - elevation, 0.0));
-    vec3 bitangent = normalize(vec3(0.0, getElevation(modelPosition.x, modelPosition.z - eps) - elevation, eps));
-    vec3 objectNormal = normalize(cross(tangent, bitangent));
+    vec3 p = modelPosition.xyz;
+    vec3 px = vec3(p.x + eps, calculateElevation(vec2(p.x + eps, p.z)), p.z);
+    vec3 pz = vec3(p.x, calculateElevation(vec2(p.x, p.z + eps)), p.z + eps);
+    vec3 tangent = normalize(px - p);
+    vec3 bitangent = normalize(pz - p);
+    vNormal = normalize(cross(tangent, bitangent));
 
-    vNormal = objectNormal;
-    vWorldPosition = modelPosition.xyz;
-
+    vWorldPosition = p;
     gl_Position = projectionMatrix * viewMatrix * modelPosition;
 }

@@ -1,21 +1,33 @@
-import React, {useEffect, useRef, useState} from 'react'
-import waterFragment from "../../../shader/waterFragment.glsl";
-import waterVertex from "../../../shader/waterVertex.glsl";
+import React, {useEffect, useMemo, useRef, useState} from 'react'
+import waterFragment from "../../../shader/waterFragment.glsl?raw";
+import waterVertex from "../../../shader/waterVertex.glsl?raw";
 import * as THREE from "three";
 import {useFrame} from "@react-three/fiber";
 
 
 const ShowcaseImage = ({texture, position}) => {
     const [size, setSize] = useState([1, 1])
-    const ref = useRef()
+    const refB = useRef(null)
+    const s = 1.6
 
+    //shader
+    const shaderMaterial = useMemo(() => new THREE.ShaderMaterial({
+        vertexShader: waterVertex,
+        fragmentShader: waterFragment,
+        uniforms: {
+            uTimeB: {value: 0},
+            uTexture: {value: texture},
+        }
+    }), [texture])
+    //animate
     useFrame(({clock}) => {
-        const shader = ref.current?.material?.uniforms?.uTime;
-        if (shader) {
-            ref.current.material.uniforms.uTime.value = clock.getElapsedTime();
+        if (refB.current?.uniforms?.uTimeB) {
+            refB.current.uniforms.uTimeB.value = clock.getElapsedTime();
         }
     })
+    console.log(refB.current?.uniforms); //debug
 
+//size of plane is the size of image
     useEffect(() => {
         const {width, height} = texture.image
         const aspectRatio = width / height
@@ -25,33 +37,10 @@ const ShowcaseImage = ({texture, position}) => {
 
     }, [texture])
     return (
-        <mesh position={position} ref={ref}>
-            <planeGeometry args={size}/>
-            <shaderMaterial
-                fragmentShader={waterFragment}
-                vertexShader={waterVertex}
-                uniforms={{
-                    uTime: {value: 0},
-                    uTexture: {value: texture},
-                    uOpacity: {value: 1.0},
-                    uTroughColor: {value: new THREE.Color('#1a1a40')},
-                    uSurfaceColor: {value: new THREE.Color('#3399ff')},
-                    uPeakColor: {value: new THREE.Color('#ffffff')},
-                    uPeakThreshold: {value: 0.3},
-                    uPeakTransition: {value: 0.2},
-                    uTroughThreshold: {value: -0.3},
-                    uTroughTransition: {value: 0.2},
-                    uFresnelScale: {value: 1.0},
-                    uFresnelPower: {value: 2.0},
-                    uWavesAmplitude: {value: 0.5},
-                    uWavesSpeed: {value: 0.2},
-                    uWavesFrequency: {value: 1.5},
-                    uWavesPersistence: {value: 0.5},
-                    uWavesLacunarity: {value: 2.0},
-                    uWavesIterations: {value: 4.0},
-                    uEnvironmentMap: {value: null} // Falls du eine Cube-Map verwendest
-                }}
-            />
+
+        <mesh position={position}>
+            <planeGeometry args={[size[0] * s, size[1] * s, 120, 120]}/>
+            <primitive ref={refB} object={shaderMaterial}/>
         </mesh>
     )
 }

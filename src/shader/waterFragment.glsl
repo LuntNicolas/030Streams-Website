@@ -1,59 +1,26 @@
 precision highp float;
 
-uniform float uOpacity;
-
-uniform vec3 uTroughColor;
-uniform vec3 uSurfaceColor;
-uniform vec3 uPeakColor;
-
-uniform float uPeakThreshold;
-uniform float uPeakTransition;
-uniform float uTroughThreshold;
-uniform float uTroughTransition;
-
-uniform float uFresnelScale;
-uniform float uFresnelPower;
-
-varying vec3 vNormal;
-varying vec3 vWorldPosition;
-varying vec2 vUv;
-
-uniform samplerCube uEnvironmentMap;
 uniform sampler2D uTexture;
+uniform float uTimeB;
 
-
+varying vec2 vUv;
+varying vec3 vWorldPosition;
+varying vec3 vNormal;
 
 void main() {
-    // Calculate vector from camera to the vertex
+    float fresnelPower = 1.0;
+    float fresnelStrength = 0.5;
+    float opacity = 0.5;
+
     vec3 viewDirection = normalize(vWorldPosition - cameraPosition);
-    vec3 reflectedDirection = reflect(viewDirection, vNormal);
-    reflectedDirection.x = -reflectedDirection.x;
+    vec3 reflected = reflect(viewDirection, vNormal);
+    reflected.x *= -1.0;
 
-    // Sample environment map to get the reflected color
-    vec4 reflectionColor = textureCube(uEnvironmentMap, reflectedDirection);
+    vec3 reflectionColor = vec3(1, 0, 1);
 
-    // Calculate fresnel effect
-    float fresnel = uFresnelScale * pow(1.0 - clamp(dot(viewDirection, vNormal), 0.0, 1.0), uFresnelPower);
+    float fresnel = fresnelStrength * pow(1.0 - clamp(dot(viewDirection, vNormal), 0.0, 1.0), fresnelPower);
 
-    // Calculate elevation-based color
-    float elevation = vWorldPosition.y;
-
-    // Calculate transition factors using smoothstep
-    float peakFactor = smoothstep(uPeakThreshold - uPeakTransition, uPeakThreshold + uPeakTransition, elevation);
-    float troughFactor = smoothstep(uTroughThreshold - uTroughTransition, uTroughThreshold + uTroughTransition, elevation);
-
-    // Mix between trough and surface colors based on trough transition
-    vec3 mixedColor1 = mix(uTroughColor, uSurfaceColor, troughFactor);
-
-    // Mix between surface and peak colors based on peak transition
-    vec3 mixedColor2 = mix(mixedColor1, uPeakColor, peakFactor);
-
-    // Mix the final color with the reflection color
-    vec3 textureColor = texture2D(uTexture, vUv).rgb;
-    // Mix the final color with the reflection color
-    vec3 finalColor = mix(mixedColor2, reflectionColor.rgb, fresnel);
-    finalColor = mix(finalColor, textureColor, 0.5);// 0.5 = Stärke der Textur, kannst du anpassen
-
-
-    gl_FragColor = vec4(finalColor, uOpacity);
+    vec4 color = texture2D(uTexture, vUv);
+    vec3 finalColor = mix(color.rgb, reflectionColor, fresnel);
+    gl_FragColor = vec4(finalColor, opacity);
 }

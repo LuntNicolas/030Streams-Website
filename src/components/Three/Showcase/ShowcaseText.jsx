@@ -1,5 +1,6 @@
-import React, {useEffect, useRef, useState} from 'react'
+import React from 'react'
 import {Text} from "@react-three/drei";
+import {Html} from "@react-three/drei";
 
 const ShowcaseText = ({text, position}) => {
     return (
@@ -8,7 +9,7 @@ const ShowcaseText = ({text, position}) => {
                 font="/fonts/Sora/static/Sora-Regular.ttf"
                 color="white"
                 maxWidth={5}
-                fontSize={0.18}
+                fontSize={0.16}
                 lineHeight={2}
             >
                 {text}

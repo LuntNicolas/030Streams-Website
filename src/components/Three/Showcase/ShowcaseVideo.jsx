@@ -19,7 +19,7 @@ const ShowcaseVideo = ({item, position}) => {
     return (
 
         <mesh position={position}>
-            <planeGeometry args={[2, 2]}/>
+            <planeGeometry args={[4, 3]}/>
             <meshBasicMaterial map={videoTexture} toneMapped={false}/>
         </mesh>
     )
