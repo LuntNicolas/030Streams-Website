@@ -9,23 +9,51 @@ export const words = [
     {text: 'energy'},
 ]
 
-export const textures = [
-    {type: "image", src: "/images/DIOSCURE.jpg"},
+export const artists = [
     {
-        type: "text",
-        content: nicolaiText
+        name: "DIOS:CURE",
+        items: [
+            {type: "image", src: "/images/DIOSCURE.jpg"},
+            {type: "text", content: nicolaiText},
+            {type: "video", src: "/videos/botanical-03.mp4"},
+        ],
+        links: [
+            {imgPath: "/images/Instagram.png", label: "Instagram", url: "https://www.instagram.com/dioscure_music/"},
+            {imgPath: "/images/SoundCloud.svg", label: "Soundcloud", url: "https://soundcloud.com/dioscure"},
+            {
+                imgPath: "/images/Spotify.svg.png",
+                label: "Spotify",
+                url: "https://open.spotify.com/artist/6QaBwqAKNWd5l2Ow2CjUqv?si=Kut6WxXmRtShv67eAHr1Aw"
+            }
+        ]
     },
-    {type: "video", src: "/videos/botanical-03.mp4"},
-    {type: "image", src: "/images/ROBSCHPress2.jpg"},
     {
-        type: "text",
-        content: robschText
+        name: "Robsch", items: [
+            {type: "image", src: "/images/ROBSCHPress2.jpg"},
+            {type: "text", content: robschText},
+            {type: "video", src: "/videos/Robsch.mov"},
+        ],
+        links: [
+            {imgPath: "/images/Instagram.png", label: "Instagram", url: "https://www.instagram.com/robsch_techno/"},
+            {imgPath: "/images/SoundCloud.svg", label: "Soundcloud", url: "https://soundcloud.com/robschtechno"},
+            {
+                imgPath: "/images/Spotify.svg.png",
+                label: "Spotify",
+                url: "https://open.spotify.com/artist/0NvOMVLvYGiftyh7rWAU1G?si=iFIJn-WZRfmQCnkXCXAi_g"
+            }
+        ]
     },
-    {type: "video", src: "/videos/Robsch.mov"},
-    {type: "image", src: "/images/Ericson.JPG"},
     {
-        type: "text", content: ericsonText
+        name: "Ericson", items: [
+            {type: "image", src: "/images/Ericson.JPG"},
+            {type: "text", content: ericsonText}
+        ],
+        links: [
+            {imgPath: "/images/Instagram.png", label: "Instagram", url: "https://www.instagram.com/ericson_music/"},
+            {imgPath: "/images/SoundCloud.svg", label: "Soundcloud", url: "https://soundcloud.com/ericson_music"},
+        ]
     }
+
 ]
 
 export const navLinks = [

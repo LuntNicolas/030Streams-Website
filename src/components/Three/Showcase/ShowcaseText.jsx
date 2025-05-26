@@ -1,8 +1,8 @@
 import React from 'react'
 import {Text} from "@react-three/drei";
-import {Html} from "@react-three/drei";
 
 const ShowcaseText = ({text, position}) => {
+
     return (
         <group position={position}>
             <Text

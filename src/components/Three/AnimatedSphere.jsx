@@ -2,6 +2,7 @@ import React, {useRef} from 'react'
 import {useFrame} from "@react-three/fiber";
 import {EffectComposer, Bloom} from "@react-three/postprocessing";
 import {BlendFunction} from "postprocessing";
+import * as THREE from "three";
 
 // import vertexShader from "../../shader/vertex.glsl";
 // import fragmentShader from "../../shader/fragment.glsl";
@@ -38,7 +39,9 @@ const AnimatedSphere = () => {
                 <meshPhysicalMaterial
                     ref={refA}
                     metalness={1}
-                    roughness={0.5}
+                    roughness={1}
+                    transmission={1}
+                    thickness={1}
                     onBeforeCompile={(shader) => {
                         //storing a reference to the shader object
                         refA.current.userData.shader = shader;
@@ -54,7 +57,7 @@ const AnimatedSphere = () => {
                         const parsFragmentString = /* glsl */ `#include <bumpmap_pars_fragment>`;
                         shader.fragmentShader = shader.fragmentShader.replace(parsFragmentString, parsFragmentString + "\n" + fragmentPars);
 
-                        const mainFragmentString = /* glsl */ `#include <normal_fragment_maps>`;
+                        const mainFragmentString = /* glsl */ `#include <normal_fragment_maps>`; //`#include <normal_fragment_maps>`
                         shader.fragmentShader = shader.fragmentShader.replace(mainFragmentString, mainFragmentString + "\n" + fragmentMain);
                     }}
                 />

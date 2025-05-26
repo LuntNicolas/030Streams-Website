@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import {Canvas} from "@react-three/fiber"
 import {Html} from "@react-three/drei"
 import * as THREE from "three"
@@ -12,40 +12,62 @@ import ShowcaseVideo from "../Three/Showcase/ShowcaseVideo.jsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const ShowcaseExperience = ({items}) => {
+const ShowcaseExperience = ({items: artists}) => {
     const loader = new THREE.TextureLoader()
-    const processedItem = items.map(item => ({
-        ...item,
-        texture: loader.load(item.src)
-    }))
+    const processedItem = artists.flatMap((artist, artistIndex) => {
+        return artist.items.map((item, i) => {
+            const x = i % 2 === 0 ? -2 : 2
+            const y = Math.random() * 2 - 1
+            const z = -artistIndex * 10 - i * 2
+
+            return {
+                ...item,
+                texture: loader.load(item.src),
+                position: [x, y, z],
+                ref: item.ref,
+            }
+
+        })
+    })
+    const [currentArtist, setCurrentArtist] = useState(artists[0].name)
+
+    useEffect(() => {
+        artists.forEach((artist, i) => {
+            ScrollTrigger.create({
+                trigger: '#scroll-wrapper',
+                start: `${i * 100}vh top`,
+                end: `${(i + 1) * 100}vh top`,
+                onEnter: () => setCurrentArtist(artist.name),
+                onEnterBack: () => setCurrentArtist(artist.name),
+            })
+        })
+        return () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill())
+        }
+    }, [])
     return (
-        <div className="scroll-wrapper ">
-            <Canvas camera={{position: [0, 0, 5], fov: 75}}>
+        <div className="scroll-wrapper relative">
+            <div
+                className="pointer-events-none absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-5xl font-bold z-50">
+                {currentArtist}
+            </div>
+            <Canvas camera={{position: [0, 0, 5], fov: 75}} gl={{preserveDrawingBuffer: true}}>
                 <ShowcaseLights/>
                 <Camera sections={processedItem}/>
                 {processedItem.map((item, i) => {
-                    const x = i % 2 === 0 ? -2 : 2
-                    const y = Math.random() * 2 - 1
-                    const z = -i * 6
 
-                    const commonProps = {
-                        ref: item.ref,
-                        position: [x, y, z],
-                        transparent: true,
-                        opacity: 0,
-                    }
 
                     if (item.type === "image") {
-                        return <ShowcaseImage key={i} {...commonProps} texture={item.texture}/>
+                        return <ShowcaseImage key={i} {...item}/>
                     }
                     if (item.type === "text") {
                         return (
-                            <ShowcaseText key={i} {...commonProps} text={item.content}/>
+                            <ShowcaseText key={i} {...item} text={item.content}/>
                         )
                     }
                     if (item.type === "video") {
                         return (
-                            <ShowcaseVideo key={i} {...commonProps} item={item.src}/>
+                            <ShowcaseVideo key={i} {...item} item={item.src}/>
                         )
                     }
                     return null

@@ -43,37 +43,37 @@ float snoise(vec2 v) {
     return 130.0 * dot(m, g);
 }
 
-float calculateElevation(vec2 pos) {
-    int wavesIterations = 3;//more iterations -> noise gets higher (bigger waves)
+float getElevation(float x, float y) {
+    vec2 pos = vec2(x, y);
+    int wavesIterations = 8;//more iterations -> noise gets higher (bigger waves)
     float wavesFrequency = 1.5;// frequency of waves
     float wavesLacunarity = 2.0;
-    float amplitude = 0.1;
+    float amplitude = 0.08;
     float persistance = 0.3;//more frequency noise
+    float elevation = 0.0;
 
     float total = 0.0;
     for (int i = 0; i < wavesIterations; i++) {
-        total += amplitude * snoise(wavesFrequency * pos + 0.2 * uTimeB);//  WavesSpeed
+        float noiseValue = snoise(wavesFrequency * pos.xy + 0.2 * uTimeB);//  WavesSpeed
+        elevation += amplitude * noiseValue;
         amplitude *= persistance;
         wavesFrequency *= wavesLacunarity;
     }
-    return total;
+    return elevation;
 }
 
 void main() {
     vUv = uv;
     vec4 modelPosition = modelMatrix * vec4(position, 1.0);
 
-    float elevation = calculateElevation(modelPosition.xz);
+    float elevation = getElevation(modelPosition.xz);
     modelPosition.y += elevation;
 
     float eps = 0.001;
-    vec3 p = modelPosition.xyz;
-    vec3 px = vec3(p.x + eps, calculateElevation(vec2(p.x + eps, p.z)), p.z);
-    vec3 pz = vec3(p.x, calculateElevation(vec2(p.x, p.z + eps)), p.z + eps);
-    vec3 tangent = normalize(px - p);
-    vec3 bitangent = normalize(pz - p);
+    vec3 tangent = normalize(vec3(eps, getElevation(modelPosition.x - eps, modelPosition.z) - elevation, 0.0));
+    vec3 bitangent = normalize(vec3(0.0, getElevation(modelPosition.x, modelPosition.z - eps) - elevation, eps));
     vNormal = normalize(cross(tangent, bitangent));
 
-    vWorldPosition = p;
+    vWorldPosition = modelPosition.xyz;
     gl_Position = projectionMatrix * viewMatrix * modelPosition;
 }
