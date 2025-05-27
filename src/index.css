@@ -259,6 +259,26 @@ section {
         }
     }
 
+    .showcase-layout {
+        @apply relative w-full z-10 xl:mt-20 mt-32 md:h-dvh flex xl:items-center items-start justify-center overflow-hidden;
+    }
+
+    .artist-name {
+        @apply text-white text-4xl font-bold cursor-pointer;
+    }
+
+    .link-reveal {
+        @apply mt-4 flex flex-col gap-2 items-center transition duration-300 text-white;
+    }
+
+    .artist-wrapper {
+        @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center z-10;
+    }
+
+    .showcase-3d-layout {
+        @apply sticky top-0 h-screen w-screen;
+    }
+
     .card-border {
         @apply border border-black-50 bg-black-100;
     }
