@@ -7,39 +7,35 @@ import {ScrollTrigger} from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const ShowcaseSection = () => {
+    const sectionRef = useRef(null)
     const [currentArtist, setCurrentArtist] = useState(0);
     const [scrollProgress, setScrollProgress] = useState(0);
-    const sectionRef = useRef(null)
-    console.log(currentArtist)
 
+
+    // Trigger
     useEffect(() => {
-        const totalArtists = artists.length;
 
-        // Trigger
-        artists.forEach((_, index) => (
-            ScrollTrigger.create({
-                trigger: sectionRef.current[index],
-                start: "top center",
-                end: "bottom center",
-                scrub: true,
-                pin: true,
-                onUpdate: self => {
-                    const progress = self.progress;
-
-                    const sectionSize = 1 / (2 * totalArtists)
-                    const index = Math.floor(progress / sectionSize);
-                    const clampedIndex = Math.max(0, Math.min(totalArtists - 1, index));
-
-                    if (clampedIndex !== currentArtist) {
-                        setCurrentArtist(clampedIndex);
-                    }
-                    setScrollProgress(progress);
-                }
-            })
-        ))
+        const trigger = ScrollTrigger.create({
+            trigger: sectionRef.current,
+            start: "top top",
+            end: `+=${artists.length * 100}vh`,
+            scrub: true,
+            pin: true,
+            onUpdate: (self) => {
+                const progress = self.progress;
+                const index = Math.floor(progress * artists.length);
+                const clampedIndex = Math.min(Math.max(0, index), artists.length - 1);
+                setCurrentArtist(clampedIndex);
+                setScrollProgress(progress);
+            }
+        })
+        return () => {
+            trigger.kill()
+        };
+    }, [])
 
     return (
-        <section id="work" ref={sectionRef} style={{height: `${artists.length * 100}vh`}} className="showcase-layout">
+        <section ref={sectionRef} id="work" className="showcase-layout overflow-hidden">
             <div className="group artist-wrapper ">
                 {/* Show Artist Name in middle of display */}
                 <div className="artist-name transition duration-300 group-hover:blur-sm">
@@ -63,7 +59,7 @@ const ShowcaseSection = () => {
             </div>
             {/* Canvas, 3d Renderer */}
             <figure>
-                <div className="showcase-3d-layout">
+                <div className="showcase-3d-layout z-0">
                     <ShowcaseExperience scrollProgress={scrollProgress} currentArtist={currentArtist}/>
                 </div>
             </figure>
