@@ -33,7 +33,6 @@ const ShowcaseSection = () => {
             trigger.kill()
         };
     }, [])
-
     return (
         <section ref={sectionRef} id="work" className="showcase-layout overflow-hidden">
             <div className="group artist-wrapper ">
@@ -60,7 +59,7 @@ const ShowcaseSection = () => {
             {/* Canvas, 3d Renderer */}
             <figure>
                 <div className="showcase-3d-layout z-0">
-                    <ShowcaseExperience scrollProgress={scrollProgress} currentArtist={currentArtist}/>
+                    <ShowcaseExperience scrollProgress={scrollProgress}/>
                 </div>
             </figure>
         </section>
