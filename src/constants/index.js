@@ -11,11 +11,11 @@ import imgSubT from "/images/Sub-T.jpeg"
 //import videos
 import vidDIOSCURE from "/videos/DIOSCURE.mp4"
 import vidRobsch from "/videos/Robsch.mov"
-
-const instagram = "/images/Instagram/Instagram_Glyph_White.svg"
-const soundcloud = "/images/Soundcloud/Soundcloud-white.svg"
-const spotify = "/images/SpotifyLogo/Spotify_Primary_Logo_RGB_White.png"
-const youtube = "/images/YouTube/YouTube_light_icon.svg"
+//import icons
+const iconInstagram = "/images/Instagram/Instagram_Glyph_White.svg"
+const iconSoundcloud = "/images/Soundcloud/Soundcloud-white.svg"
+const iconSpotify = "/images/SpotifyLogo/Spotify_Primary_Logo_RGB_White.png"
+const iconYouTube = "/images/YouTube/YouTube_light_icon.svg"
 
 export const words = [
     {text: 'sound'},
@@ -33,17 +33,17 @@ export const artists = [
         ],
         links: [
             {
-                imgPath: instagram,
+                imgPath: iconInstagram,
                 label: "Instagram",
                 url: "https://www.instagram.com/dioscure_music/"
             },
             {
-                imgPath: soundcloud,
+                imgPath: iconSoundcloud,
                 label: "Soundcloud",
                 url: "https://soundcloud.com/dioscure"
             },
             {
-                imgPath: spotify,
+                imgPath: iconSpotify,
                 label: "Spotify",
                 url: "https://open.spotify.com/artist/6QaBwqAKNWd5l2Ow2CjUqv?si=Kut6WxXmRtShv67eAHr1Aw"
             }
@@ -57,22 +57,22 @@ export const artists = [
         ],
         links: [
             {
-                imgPath: instagram,
+                imgPath: iconInstagram,
                 label: "Instagram",
                 url: "https://www.instagram.com/robsch_techno/"
             },
             {
-                imgPath: soundcloud,
+                imgPath: iconSoundcloud,
                 label: "Soundcloud",
                 url: "https://soundcloud.com/robschtechno"
             },
             {
-                imgPath: spotify,
+                imgPath: iconSpotify,
                 label: "Spotify",
                 url: "https://open.spotify.com/artist/0NvOMVLvYGiftyh7rWAU1G?si=iFIJn-WZRfmQCnkXCXAi_g"
             },
             {
-                imgPath: youtube,
+                imgPath: iconYouTube,
                 label: "YouTube",
                 url: "https://www.youtube.com/watch?v=mK9nD6DWKxA&t=1140s"
             }
@@ -85,17 +85,17 @@ export const artists = [
         ],
         links: [
             {
-                imgPath: instagram,
+                imgPath: iconInstagram,
                 label: "Instagram",
                 url: "https://www.instagram.com/ericson_music/"
             },
             {
-                imgPath: soundcloud,
+                imgPath: iconSoundcloud,
                 label: "Soundcloud",
                 url: "https://soundcloud.com/ericson_music"
             },
             {
-                imgPath: spotify,
+                imgPath: iconSpotify,
                 label: "Spotify",
                 url: "https://open.spotify.com/artist/59v9zXObOlNsW2VZa65l06?si=djw1JYdSQ_u46AKEkmtYPQ"
             }
@@ -108,12 +108,12 @@ export const artists = [
         ],
         links: [
             {
-                imgPath: instagram,
+                imgPath: iconInstagram,
                 label: "Instagram",
                 url: "https://www.instagram.com/sub_t_official/"
             },
             {
-                imgPath: soundcloud,
+                imgPath: iconSoundcloud,
                 label: "Soundcloud",
                 url: "https://soundcloud.com/thereal-sub-t"
             },
