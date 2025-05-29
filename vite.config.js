@@ -10,4 +10,5 @@ export default defineConfig({
         react(),
         glsl()
     ],
+    base: "/030Streams-Website"
 })

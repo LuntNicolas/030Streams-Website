@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://deinusername.github.io/030Streams-Website",
+  "homepage": "https://LuntNicolas.github.io/030Streams-Website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
