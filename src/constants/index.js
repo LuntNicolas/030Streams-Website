@@ -1,8 +1,8 @@
 //import Texts
-import nicolaiText from "/text/Nicolai.txt?raw"
-import robschText from "/text/ROBSCH.txt?raw"
-import SubTText from "/text/Sub-T.txt?raw"
-import ericsonText from "/text/Ericson.txt?raw"
+import nicolaiText from "/030Streams-Website/text/Nicolai.txt?raw"
+import robschText from "/030Streams-Website/text/ROBSCH.txt?raw"
+import SubTText from "/030Streams-Website/text/Sub-T.txt?raw"
+import ericsonText from "/030Streams-Website/text/Ericson.txt?raw"
 //import images
 import imgDIOSCURE from "/030Streams-Website/images/DIOSCURE.jpg"
 import imgRobsch from "/030Streams-Website/images/ROBSCHPress2.jpg"
