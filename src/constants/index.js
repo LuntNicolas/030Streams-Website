@@ -1,7 +1,16 @@
+//import Texts
 import nicolaiText from "/text/Nicolai.txt?raw"
 import robschText from "/text/ROBSCH.txt?raw"
 import SubTText from "/text/Sub-T.txt?raw"
 import ericsonText from "/text/Ericson.txt?raw"
+//import images
+import imgDIOSCURE from "/images/DIOSCURE.jpg"
+import imgRobsch from "/images/ROBSCHPress2.jpg"
+import imgEric from "/images/Ericson.jpg"
+import imgSubT from "/images/Sub-T.jpeg"
+//import videos
+import vidDIOSCURE from "/videos/DIOSCURE.mp4"
+import vidRobsch from "/videos/Robsch.mov"
 
 const instagram = "/images/Instagram/Instagram_Glyph_White.svg"
 const soundcloud = "/images/Soundcloud/Soundcloud-white.svg"
@@ -18,9 +27,9 @@ export const artists = [
     {
         name: "DIOS:CURE",
         items: [
-            {type: "image", src: "../images/DIOSCURE.jpg"},
+            {type: "image", src: imgDIOSCURE},
             {type: "text", content: nicolaiText},
-            {type: "video", src: "/videos/DIOSCURE.mp4"},
+            {type: "video", src: vidDIOSCURE},
         ],
         links: [
             {
@@ -42,9 +51,9 @@ export const artists = [
     },
     {
         name: "Robsch", items: [
-            {type: "image", src: "/images/ROBSCHPress2.jpg"},
+            {type: "image", src: imgRobsch},
             {type: "text", content: robschText},
-            {type: "video", src: "/videos/Robsch.mov"},
+            {type: "video", src: vidRobsch},
         ],
         links: [
             {
@@ -71,7 +80,7 @@ export const artists = [
     },
     {
         name: "Ericson", items: [
-            {type: "image", src: "/images/Ericson.JPG"},
+            {type: "image", src: imgEric},
             {type: "text", content: ericsonText}
         ],
         links: [
@@ -94,7 +103,7 @@ export const artists = [
     },
     {
         name: "Sub-T", items: [
-            {type: "image", src: "/images/Sub-T.jpeg"},
+            {type: "image", src: imgSubT},
             {type: "text", content: SubTText}
         ],
         links: [
