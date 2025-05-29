@@ -1,7 +1,7 @@
 import {navLinks} from "../constants/index.js";
 import {useEffect, useState} from "react";
 
-import Logo from "/030Streams-Website/images/030-logo.svg"
+import Logo from "/images/030-logo.svg"
 
 const NavBar = () => {
     const [scrolled, setScrolled] = useState(false)

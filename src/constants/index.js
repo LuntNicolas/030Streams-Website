@@ -1,21 +1,21 @@
 //import Texts
-import nicolaiText from "/030Streams-Website/text/Nicolai.txt?raw"
-import robschText from "/030Streams-Website/text/ROBSCH.txt?raw"
-import SubTText from "/030Streams-Website/text/Sub-T.txt?raw"
-import ericsonText from "/030Streams-Website/text/Ericson.txt?raw"
+import nicolaiText from "/text/Nicolai.txt?raw"
+import robschText from "/text/ROBSCH.txt?raw"
+import SubTText from "/text/Sub-T.txt?raw"
+import ericsonText from "/text/Ericson.txt?raw"
 //import images
-import imgDIOSCURE from "/030Streams-Website/images/DIOSCURE.jpg"
-import imgRobsch from "/030Streams-Website/images/ROBSCHPress2.jpg"
-import imgEric from "/030Streams-Website/images/Ericson.jpg"
-import imgSubT from "/030Streams-Website/images/Sub-T.jpeg"
+import imgDIOSCURE from "/images/DIOSCURE.jpg"
+import imgRobsch from "/images/ROBSCHPress2.jpg"
+import imgEric from "/images/Ericson.jpg"
+import imgSubT from "/images/Sub-T.jpeg"
 //import videos
-import vidDIOSCURE from "/030Streams-Website/videos/DIOSCURE.mp4"
-import vidRobsch from "/030Streams-Website/videos/Robsch.mov"
+import vidDIOSCURE from "/videos/DIOSCURE.mp4"
+import vidRobsch from "/videos/Robsch.mov"
 //import icons
-import iconInstagram from "/030Streams-Website/images/Instagram/Instagram_Glyph_White.svg"
-import iconSoundcloud from "/030Streams-Website/images/Soundcloud/Soundcloud-white.svg"
-import iconSpotify from "/030Streams-Website/images/SpotifyLogo/Spotify_Primary_Logo_RGB_White.png"
-import iconYouTube from "/030Streams-Website/images/YouTube/YouTube_light_icon.svg"
+import iconInstagram from "/images/Instagram/Instagram_Glyph_White.svg"
+import iconSoundcloud from "/images/Soundcloud/Soundcloud-white.svg"
+import iconSpotify from "/images/SpotifyLogo/Spotify_Primary_Logo_RGB_White.png"
+import iconYouTube from "/images/YouTube/YouTube_light_icon.svg"
 
 export const words = [
     {text: 'sound'},
