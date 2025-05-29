@@ -13,10 +13,10 @@ const imgSubT = "/images/Sub-T.jpeg"
 const vidDIOSCURE = "/videos/DIOSCURE.mp4"
 const vidRobsch = "/videos/Robsch.mov"
 //const icons
-const iconInstagram = "/images/Instagram/Instagram_Glyph_White.svg"
+const iconInstagram = "/images/Instagram/InstagramGlyphWhite.svg"
 const iconSoundcloud = "/images/Soundcloud/Soundcloud-white.svg"
-const iconSpotify = "/images/SpotifyLogo/Spotify_Primary_Logo_RGB_White.png"
-const iconYouTube = "/images/YouTube/YouTube_light_icon.svg"
+const iconSpotify = "/images/SpotifyLogo/SpotifyPrimaryLogoRGBWhite.png"
+const iconYouTube = "/images/YouTube/YouTube_ighticon.svg"
 
 export const words = [
     {text: 'sound'},
