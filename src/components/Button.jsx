@@ -1,4 +1,4 @@
-import arrowDown from "/images/arrow-down.svg"
+import arrowDown from "/030Streams-Website/images/arrow-down.svg"
 
 const Button = ({text, className, id}) => {
     return (
