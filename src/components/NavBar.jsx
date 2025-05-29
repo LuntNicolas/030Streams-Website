@@ -1,6 +1,8 @@
 import {navLinks} from "../constants/index.js";
 import {useEffect, useState} from "react";
 
+import Logo from "/images/030-logo.svg"
+
 const NavBar = () => {
     const [scrolled, setScrolled] = useState(false)
 
@@ -17,7 +19,7 @@ const NavBar = () => {
             <div className="inner">
                 <a className="logo" href="#hero">
                     <div className="logo-wrapper">
-                        <img src="/images/030-logo.svg" alt="logo" className="h-full w-auto"/>
+                        <img src={Logo} alt="logo" className="h-full w-auto"/>
                     </div>
                     030 Sessions
                 </a>
