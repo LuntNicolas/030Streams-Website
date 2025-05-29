@@ -22,7 +22,6 @@ const ShowcaseSection = () => {
             end: `+=${artists.length * 200}vh`,  // every 200 vh change of name
             scrub: true,
             pin: true,
-            markers: true,
             onUpdate: (self) => {
                 const progress = self.progress;
                 const index = Math.floor(progress * artists.length);
