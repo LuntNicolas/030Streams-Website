@@ -4,19 +4,19 @@ import robschText from "/text/ROBSCH.txt?raw"
 import SubTText from "/text/Sub-T.txt?raw"
 import ericsonText from "/text/Ericson.txt?raw"
 //const images
-const imgDIOSCURE = "/images/DIOSCURE.jpg"
-const imgRobsch = "/images/ROBSCHPress2.jpg"
+const imgDIOSCURE = "./images/DIOSCURE.jpg"
+const imgRobsch = "./images/ROBSCHPress2.jpg"
 
-const imgEric = "/images/Ericson.jpg"
-const imgSubT = "/images/Sub-T.jpeg"
+const imgEric = "./images/Ericson.jpg"
+const imgSubT = "./images/Sub-T.jpeg"
 //const videos
-const vidDIOSCURE = "/videos/DIOSCURE.mp4"
-const vidRobsch = "/videos/Robsch.mov"
+const vidDIOSCURE = "./videos/DIOSCURE.mp4"
+const vidRobsch = "./videos/Robsch.mov"
 //const icons
-const iconInstagram = "/images/Instagram/InstagramGlyphWhite.svg"
-const iconSoundcloud = "/images/Soundcloud/Soundcloud-white.svg"
-const iconSpotify = "/images/SpotifyLogo/SpotifyPrimaryLogoRGBWhite.png"
-const iconYouTube = "/images/YouTube/YouTube_ighticon.svg"
+const iconInstagram = "./images/Instagram/InstagramGlyphWhite.svg"
+const iconSoundcloud = "./images/Soundcloud/Soundcloud-white.svg"
+const iconSpotify = "./images/SpotifyLogo/SpotifyPrimaryLogoRGBWhite.png"
+const iconYouTube = "./images/YouTube/YouTube_ighticon.svg"
 
 export const words = [
     {text: 'sound'},

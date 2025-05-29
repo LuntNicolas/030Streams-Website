@@ -17,7 +17,7 @@ const NavBar = () => {
             <div className="inner">
                 <a className="logo" href="#hero">
                     <div className="logo-wrapper">
-                        <img src="/images/030-logo.svg " alt="logo" className="h-full w-auto"/>
+                        <img src="./images/030-logo.svg " alt="logo" className="h-full w-auto"/>
                     </div>
                     030 Sessions
                 </a>
