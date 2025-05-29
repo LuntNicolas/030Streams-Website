@@ -2,7 +2,6 @@ import {useFrame, useThree} from '@react-three/fiber';
 import gsap from 'gsap';
 import {ScrollTrigger} from "gsap/ScrollTrigger";
 
-
 gsap.registerPlugin(ScrollTrigger);
 
 const ScrollManager = ({scrollProgress}) => {

@@ -176,47 +176,6 @@ section {
         }
     }
 
-    .app-showcas {
-        @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center transition-none transform-3d perspective-distant;
-
-        .showcaselayot {
-            @apply flex flex-col gap-40 ;
-        }
-
-
-        .zoom-wrapper {
-            @apply relative w-[100vw] h-[100vw] overflow-hidden transform-3d perspective-[2200px];
-
-            h2 {
-                @apply text-lg md:text-xl lg:text-2xl font-semibold mt-5;
-            }
-
-            .image-wrapper {
-                @apply xl:h-[50vh] md:h-[50vh] h-96 z-[1] transform-3d bottom-[15%] left-[5%];
-
-                img {
-                    @apply w-full h-full object-cover rounded-xl absolute inset-0;
-                }
-            }
-
-            .text-wrapper {
-                @apply xl:h-[70vh] md:h-[50vh] h-96 w-full relative p-5;
-            }
-
-            .text-content {
-                @apply space-y-5 mt-5;
-
-                .badges {
-                    @apply flex gap-2 mb-4;
-                }
-
-                h2 {
-                    @apply text-2xl md:text-3xl lg:text-4xl font-bold;
-                }
-            }
-        }
-    }
-
     .app-showcase {
         @apply w-full mt-20 px-5 md:px-20 py-10 md:py-20 flex items-center justify-center;
     }
@@ -376,6 +335,7 @@ section {
     display: inline-block;
     flex-direction: column;
     transition: all cubic-bezier(0.71, 0.03, 0.34, 1);
+    
 }
 
 .wrapper {

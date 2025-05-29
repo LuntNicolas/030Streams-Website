@@ -12,7 +12,7 @@ const ShowcaseExperience = ({scrollProgress}) => {
             <ScrollManager scrollProgress={scrollProgress}/>
             <group>
                 {artists.map((_, i) => (
-                    <ArtistCard key={i} index={i} scrollProgress={scrollProgress}/>
+                    <ArtistCard key={i} index={i}/>
                 ))}
             </group>
         </Canvas>
