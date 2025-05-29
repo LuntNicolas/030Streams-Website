@@ -7,7 +7,7 @@ import ericsonText from "/text/Ericson.txt?raw"
 import imgDIOSCURE from "/images/DIOSCURE.jpg"
 import imgRobsch from "/images/ROBSCHPress2.jpg"
 
-const imgEric = "/images/Ericson.jpg"
+import imgEric from "/images/Ericson.jpg"
 import imgSubT from "/images/Sub-T.jpeg"
 //import videos
 import vidDIOSCURE from "/videos/DIOSCURE.mp4"
