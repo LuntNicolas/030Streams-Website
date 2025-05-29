@@ -18,7 +18,7 @@ export const artists = [
     {
         name: "DIOS:CURE",
         items: [
-            {type: "image", src: "/images/DIOSCURE.jpg"},
+            {type: "image", src: "../images/DIOSCURE.jpg"},
             {type: "text", content: nicolaiText},
             {type: "video", src: "/videos/DIOSCURE.mp4"},
         ],
