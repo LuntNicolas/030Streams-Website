@@ -1,13 +1,9 @@
 // components/ArtistItem.jsx
 import {useLoader} from "@react-three/fiber";
 import * as THREE from "three";
-import React, {useEffect, useState, useRef} from "react";
+import React, {useEffect, useState} from "react";
 import {TextureLoader} from "three";
 import {Text} from "@react-three/drei";
-import gsap from "gsap";
-
-const fontSora = "/fonts/Sora/static/Sora-Regular.ttf"
-
 
 const ArtistMesh = ({item, position}) => {
     const [videoTexture, setVideoTexture] = useState(null);
@@ -48,7 +44,7 @@ const ArtistMesh = ({item, position}) => {
         return (
             <group transparent={true} position={position}>
                 <Text
-                    font={fontSora}
+                    font="/fonts/Sora/static/Sora-Regular.ttf"
                     color="white"
                     maxWidth={5}
                     fontSize={0.16}

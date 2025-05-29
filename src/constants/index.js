@@ -1,22 +1,22 @@
-//import Texts
+//const Texts
 import nicolaiText from "/text/Nicolai.txt?raw"
 import robschText from "/text/ROBSCH.txt?raw"
 import SubTText from "/text/Sub-T.txt?raw"
 import ericsonText from "/text/Ericson.txt?raw"
-//import images
-import imgDIOSCURE from "/images/DIOSCURE.jpg"
-import imgRobsch from "/images/ROBSCHPress2.jpg"
+//const images
+const imgDIOSCURE = "/images/DIOSCURE.jpg"
+const imgRobsch = "/images/ROBSCHPress2.jpg"
 
-import imgEric from "/images/Ericson.jpg"
-import imgSubT from "/images/Sub-T.jpeg"
-//import videos
-import vidDIOSCURE from "/videos/DIOSCURE.mp4"
-import vidRobsch from "/videos/Robsch.mov"
-//import icons
-import iconInstagram from "/images/Instagram/Instagram_Glyph_White.svg"
-import iconSoundcloud from "/images/Soundcloud/Soundcloud-white.svg"
-import iconSpotify from "/images/SpotifyLogo/Spotify_Primary_Logo_RGB_White.png"
-import iconYouTube from "/images/YouTube/YouTube_light_icon.svg"
+const imgEric = "/images/Ericson.jpg"
+const imgSubT = "/images/Sub-T.jpeg"
+//const videos
+const vidDIOSCURE = "/videos/DIOSCURE.mp4"
+const vidRobsch = "/videos/Robsch.mov"
+//const icons
+const iconInstagram = "/images/Instagram/Instagram_Glyph_White.svg"
+const iconSoundcloud = "/images/Soundcloud/Soundcloud-white.svg"
+const iconSpotify = "/images/SpotifyLogo/Spotify_Primary_Logo_RGB_White.png"
+const iconYouTube = "/images/YouTube/YouTube_light_icon.svg"
 
 export const words = [
     {text: 'sound'},

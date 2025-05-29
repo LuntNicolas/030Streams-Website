@@ -1,7 +1,5 @@
 import React from 'react'
 
-const mailIcon = "/images/MailArrow.svg"
-
 const Contact = () => {
     return (
         <section id="contact" className="flex items-center justify-center section-padding md:h-screen h-[80vh]">
@@ -21,7 +19,7 @@ const Contact = () => {
                        className="group inline-flex items-center text-2xl font-semibold text-white-50 hover:text-white
                   transition-all duration-300 transform hover:translate-x-10 -ml-16">
                         <img
-                            src={mailIcon}
+                            src="/images/MailArrow.svg"
                             alt="arrow"
                             className="xl:size-10 md:size-8 size-7 mx-3 invert
                        opacity-0 transition-all duration-300
