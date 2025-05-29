@@ -44,7 +44,7 @@ const ArtistMesh = ({item, position}) => {
         return (
             <group transparent={true} position={position}>
                 <Text
-                    font="/fonts/Sora/static/Sora-Regular.ttf"
+                    font="./fonts/Sora/static/Sora-Regular.ttf"
                     color="white"
                     maxWidth={5}
                     fontSize={0.16}
