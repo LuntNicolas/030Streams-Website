@@ -12,10 +12,10 @@ import imgSubT from "/030Streams-Website/images/Sub-T.jpeg"
 import vidDIOSCURE from "/030Streams-Website/videos/DIOSCURE.mp4"
 import vidRobsch from "/030Streams-Website/videos/Robsch.mov"
 //import icons
-const iconInstagram = "/030Streams-Website/images/Instagram/Instagram_Glyph_White.svg"
-const iconSoundcloud = "/030Streams-Website/images/Soundcloud/Soundcloud-white.svg"
-const iconSpotify = "/030Streams-Website/images/SpotifyLogo/Spotify_Primary_Logo_RGB_White.png"
-const iconYouTube = "/030Streams-Website/images/YouTube/YouTube_light_icon.svg"
+import iconInstagram from "/030Streams-Website/images/Instagram/Instagram_Glyph_White.svg"
+import iconSoundcloud from "/030Streams-Website/images/Soundcloud/Soundcloud-white.svg"
+import iconSpotify from "/030Streams-Website/images/SpotifyLogo/Spotify_Primary_Logo_RGB_White.png"
+import iconYouTube from "/030Streams-Website/images/YouTube/YouTube_light_icon.svg"
 
 export const words = [
     {text: 'sound'},
