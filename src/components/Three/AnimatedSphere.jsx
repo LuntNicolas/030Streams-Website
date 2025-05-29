@@ -13,13 +13,15 @@ import fragmentPars from "../../shader/fragment_pars.glsl";
 import fragmentMain from "../../shader/fragment_main.glsl";
 
 const AnimatedSphere = () => {
-    const refA = useRef(null);
+    const shaderRef = useRef(null);
+    const meshRef = useRef(null)
 
     useFrame(({clock}) => {
-        const shader = refA.current?.userData?.shader;
+        const shader = shaderRef.current?.userData?.shader;
         if (shader) {
             shader.uniforms.uTime.value = clock.getElapsedTime() * 0.1;
         }
+        meshRef.current.rotation.y = clock.getElapsedTime() * 0.2;
 
     })
     return (
@@ -33,18 +35,18 @@ const AnimatedSphere = () => {
                     luminanceSmoothing={0.2}
                 />
             </EffectComposer>
-            <mesh>
+            <mesh ref={meshRef}>
                 <icosahedronGeometry args={[2, 100]}/>
                 {/* <meshStandardMaterial color="teal"/>*/}
                 <meshPhysicalMaterial
-                    ref={refA}
+                    ref={shaderRef}
                     metalness={1}
                     roughness={1}
                     transmission={1}
                     thickness={1}
                     onBeforeCompile={(shader) => {
                         //storing a reference to the shader object
-                        refA.current.userData.shader = shader;
+                        shaderRef.current.userData.shader = shader;
                         //uniforms
                         shader.uniforms.uTime = {value: 0};
 

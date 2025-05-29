@@ -6,6 +6,7 @@ import ericsonText from "/text/Ericson.txt?raw"
 const instagram = "/images/Instagram/Instagram_Glyph_White.svg"
 const soundcloud = "/images/Soundcloud/Soundcloud-white.svg"
 const spotify = "/images/SpotifyLogo/Spotify_Primary_Logo_RGB_White.png"
+const youtube = "/images/YouTube/YouTube_light_icon.svg"
 
 export const words = [
     {text: 'sound'},
@@ -60,6 +61,11 @@ export const artists = [
                 imgPath: spotify,
                 label: "Spotify",
                 url: "https://open.spotify.com/artist/0NvOMVLvYGiftyh7rWAU1G?si=iFIJn-WZRfmQCnkXCXAi_g"
+            },
+            {
+                imgPath: youtube,
+                label: "YouTube",
+                url: "https://www.youtube.com/watch?v=mK9nD6DWKxA&t=1140s"
             }
         ]
     },
