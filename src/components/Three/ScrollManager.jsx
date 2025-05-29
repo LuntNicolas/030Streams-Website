@@ -9,7 +9,7 @@ const ScrollManager = ({scrollProgress}) => {
     const {camera} = useThree();
 
     useFrame(() => {
-        camera.position.z = -scrollProgress * 40 + 10;
+        camera.position.z = -scrollProgress * 80 + 10;
         camera.lookAt(0, 0, camera.position.z - 1);
     })
 

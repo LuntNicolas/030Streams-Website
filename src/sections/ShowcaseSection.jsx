@@ -18,7 +18,7 @@ const ShowcaseSection = () => {
         const trigger = ScrollTrigger.create({
             trigger: sectionRef.current,
             start: "top top",
-            end: `+=${artists.length * 100}vh`,
+            end: `+=${artists.length * 200}vh`,  // every 200 vh change of name
             scrub: true,
             pin: true,
             onUpdate: (self) => {
