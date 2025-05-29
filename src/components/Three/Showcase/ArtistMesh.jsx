@@ -6,6 +6,8 @@ import {TextureLoader} from "three";
 import {Text} from "@react-three/drei";
 import gsap from "gsap";
 
+const fontSora = "/fonts/Sora/static/Sora-Regular.ttf"
+
 
 const ArtistMesh = ({item, position}) => {
     const [videoTexture, setVideoTexture] = useState(null);
@@ -46,7 +48,7 @@ const ArtistMesh = ({item, position}) => {
         return (
             <group transparent={true} position={position}>
                 <Text
-                    font="/fonts/Sora/static/Sora-Regular.ttf"
+                    font={fontSora}
                     color="white"
                     maxWidth={5}
                     fontSize={0.16}

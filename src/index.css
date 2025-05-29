@@ -13,6 +13,7 @@ body {
     color: white;
     scroll-behavior: smooth;
     font-family: "Sora", sans-serif;
+    overflow-y: auto;
 }
 
 section {
@@ -335,7 +336,7 @@ section {
     display: inline-block;
     flex-direction: column;
     transition: all cubic-bezier(0.71, 0.03, 0.34, 1);
-    
+
 }
 
 .wrapper {

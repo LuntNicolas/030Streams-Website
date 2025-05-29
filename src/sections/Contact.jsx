@@ -1,6 +1,6 @@
 import React from 'react'
 
-import mailIcon from "/images/MailArrow.svg"
+const mailIcon = "/images/MailArrow.svg"
 
 const Contact = () => {
     return (

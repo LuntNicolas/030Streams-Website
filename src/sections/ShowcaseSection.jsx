@@ -10,6 +10,7 @@ const ShowcaseSection = () => {
     const sectionRef = useRef(null)
     const [currentArtist, setCurrentArtist] = useState(0);
     const [scrollProgress, setScrollProgress] = useState(0);
+    console.log(ScrollTrigger)
 
 
     // Trigger
