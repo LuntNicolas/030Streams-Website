@@ -16,7 +16,7 @@ const vidRobsch = "./videos/Robsch.mov"
 const iconInstagram = "./images/Instagram/InstagramGlyphWhite.svg"
 const iconSoundcloud = "./images/Soundcloud/Soundcloud-white.svg"
 const iconSpotify = "./images/SpotifyLogo/SpotifyPrimaryLogoRGBWhite.png"
-const iconYouTube = "./images/YouTube/YouTube_ighticon.svg"
+const iconYouTube = "./images/YouTube/YouTubelighticon.svg"
 
 export const words = [
     {text: 'sound'},

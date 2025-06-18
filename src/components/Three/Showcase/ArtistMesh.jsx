@@ -5,16 +5,16 @@ import React, {useEffect, useState} from "react";
 import {TextureLoader} from "three";
 import {Text} from "@react-three/drei";
 
-const ArtistMesh = ({item, position}) => {
-    const [videoTexture, setVideoTexture] = useState(null);
 
+const ArtistMesh = ({item, position, opacity}) => {
+    const [videoTexture, setVideoTexture] = useState(null);
 
     if (item.type === "image") {
         const texture = useLoader(TextureLoader, item.src);
         return (
             <mesh position={position}>
-                <planeGeometry args={[4, 4]}/>
-                <meshBasicMaterial transparent={true} map={texture}/>
+                <planeGeometry args={[8, 12]}/>
+                <meshBasicMaterial opacity={opacity} transparent={true} map={texture}/>
             </mesh>
         );
     }
@@ -34,13 +34,12 @@ const ArtistMesh = ({item, position}) => {
         return videoTexture ? (
             <mesh position={position}>
                 <planeGeometry args={[4, 4]}/>
-                <meshBasicMaterial transparent={true} map={videoTexture}/>
+                <meshBasicMaterial opacity={opacity} transparent={true} map={videoTexture}/>
             </mesh>
         ) : null;
     }
 
     if (item.type === "text") {
-        // Beispiel mit einfachem Text in Plane (TextGeometry braucht FontLoader!)
         return (
             <group transparent={true} position={position}>
                 <Text
@@ -49,6 +48,7 @@ const ArtistMesh = ({item, position}) => {
                     maxWidth={5}
                     fontSize={0.16}
                     lineHeight={2}
+                    fillOpacity={opacity}
                 >
                     {item.content}
                 </Text>

@@ -3,19 +3,20 @@ import gsap from "gsap";
 import ShowcaseExperience from "../components/ShowcaseModels/ShowcaseExperience.jsx";
 import {artists} from "../constants/index.js";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
+import {SplitText} from "gsap/SplitText";
 
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText)
 
 const ShowcaseSection = () => {
     const sectionRef = useRef(null)
     const [currentArtist, setCurrentArtist] = useState(0);
     const [scrollProgress, setScrollProgress] = useState(0);
+
     console.log(ScrollTrigger)
-
-
     // Trigger
     useEffect(() => {
-
+        // scroll trigger for 3d scroll through the room
         const trigger = ScrollTrigger.create({
             trigger: sectionRef.current,
             start: "top top",
@@ -31,8 +32,8 @@ const ShowcaseSection = () => {
             }
         })
         return () => {
-            trigger.kill()
-        };
+            trigger.kill();
+        }
     }, [])
     return (
         <section ref={sectionRef} id="work" className="showcase-layout overflow-hidden">

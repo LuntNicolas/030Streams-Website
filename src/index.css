@@ -225,7 +225,7 @@ section {
     }
 
     .artist-name {
-        @apply text-white text-4xl font-bold cursor-pointer;
+        @apply text-white text-8xl font-bold cursor-pointer;
     }
 
     .link-reveal {
