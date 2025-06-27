@@ -15,7 +15,7 @@ const Contact = () => {
                 </div>
                 {/* RIGHT */}
                 <div className="flex flex-col justify-center">
-                    <a href="mailto:lunt.lennart@gmail.com"
+                    <a href="mailto:030Stream.Session@gmail.com"
                        className="group inline-flex items-center text-2xl font-semibold text-white-50 hover:text-white
                   transition-all duration-300 transform hover:translate-x-10 -ml-16">
                         <img
@@ -26,7 +26,7 @@ const Contact = () => {
                        group-hover:opacity-100 group-hover:translate-x-0 group-hover:bg-white"
                         />
                         <span className="transition-colors duration-300">
-                            lunt.lennart@gmail.com
+                            030Stream.Session@gmail.com
                         </span>
 
                     </a>
