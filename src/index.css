@@ -31,6 +31,12 @@ section {
     --color-blue-100: #2d2d38;
 }
 
+@utility text-gradient {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
 @layer utilities {
     .translate-3d-z {
         transform: translate3d(0, 0, -305dvh);
@@ -221,7 +227,7 @@ section {
     }
 
     .showcase-layout {
-        @apply relative w-full z-10 xl:mt-20 mt-32 md:h-dvh h-[800vh] flex xl:items-center items-start justify-center overflow-hidden;
+        @apply relative w-full z-10 xl:mt-20 mt-32 md:h-dvh h-[1600vh] flex xl:items-center items-start justify-center overflow-hidden;
     }
 
     .artist-name {

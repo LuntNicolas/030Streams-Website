@@ -8,7 +8,15 @@ const ScrollManager = ({scrollProgress}) => {
     const {camera} = useThree();
 
     useFrame(() => {
-        camera.position.z = -scrollProgress * 80 + 10;
+        const targetZ = -scrollProgress * 160 + 10;
+        // camera.position.z = -scrollProgress * 160 + 10;
+        // camera.lookAt(0, 0, camera.position.z - 1);
+
+        gsap.to(camera.position, {
+            z: targetZ,
+            duration: 0.6,
+            ease: 'power2.Out'
+        })
         camera.lookAt(0, 0, camera.position.z - 1);
     })
 

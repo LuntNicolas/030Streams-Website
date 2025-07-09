@@ -3,31 +3,31 @@ import gsap from "gsap";
 import ShowcaseExperience from "../components/ShowcaseModels/ShowcaseExperience.jsx";
 import {artists} from "../constants/index.js";
 import {ScrollTrigger} from "gsap/ScrollTrigger";
-import {SplitText} from "gsap/SplitText";
+import {SplitText} from "gsap/all";
+import {useGSAP} from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(SplitText)
 
 const ShowcaseSection = () => {
     const sectionRef = useRef(null)
+    const nameRef = useRef(null)
     const [currentArtist, setCurrentArtist] = useState(0);
     const [scrollProgress, setScrollProgress] = useState(0);
 
-    console.log(ScrollTrigger)
     // Trigger
     useEffect(() => {
         // scroll trigger for 3d scroll through the room
         const trigger = ScrollTrigger.create({
             trigger: sectionRef.current,
             start: "top top",
-            end: `+=${artists.length * 200}vh`,  // every 200 vh change of name
+            end: `+=${(artists.length) * 200}vh`,  // every 400 vh change of name
             scrub: true,
             pin: true,
             onUpdate: (self) => {
                 const progress = self.progress;
                 const index = Math.floor(progress * artists.length);
                 const clampedIndex = Math.min(Math.max(0, index), artists.length - 1);
-                setCurrentArtist(clampedIndex);
+                setCurrentArtist(clampedIndex)
                 setScrollProgress(progress);
             }
         })
@@ -35,13 +35,33 @@ const ShowcaseSection = () => {
             trigger.kill();
         }
     }, [])
+
+    // useGSAP(() => {
+    //     if (!nameRef.current) return
+    //
+    //     let split = new SplitText(nameRef.current, {type: "chars"})
+    //
+    //     const titleTl = gsap.timeline()
+    //
+    //     titleTl.to(split.chars, {x: 0, stagger: 0.1, opacity: 0})
+    //
+    //
+    //     return () => {
+    //         split.revert()
+    //         titleTl.kill()
+    //     }
+    //
+    // }, [currentArtist])
+
     return (
         <section ref={sectionRef} id="work" className="showcase-layout overflow-hidden">
             <div className="group artist-wrapper ">
                 {/* Show Artist Name in middle of display */}
-                <div className="artist-name transition duration-300 group-hover:blur-sm">
-                    {artists[currentArtist]?.name}
-                </div>
+
+                <h1 ref={nameRef}
+                    className="artist-name transition duration-300 group-hover:blur-sm">{artists[currentArtist]?.name}
+                </h1>
+
                 {/* Links */}
                 <div className="link-reveal opacity-0 group-hover:opacity-100">
                     {artists[currentArtist]?.links.map((link, index) => (

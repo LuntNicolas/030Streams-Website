@@ -14,7 +14,7 @@ const ArtistMesh = ({item, position, opacity}) => {
         return (
             <mesh position={position}>
                 <planeGeometry args={[8, 12]}/>
-                <meshBasicMaterial opacity={opacity} transparent={true} map={texture}/>
+                <meshBasicMaterial opacity={1} transparent={true} map={texture}/>
             </mesh>
         );
     }
@@ -33,8 +33,8 @@ const ArtistMesh = ({item, position, opacity}) => {
 
         return videoTexture ? (
             <mesh position={position}>
-                <planeGeometry args={[4, 4]}/>
-                <meshBasicMaterial opacity={opacity} transparent={true} map={videoTexture}/>
+                <planeGeometry args={[10, 9]}/>
+                <meshBasicMaterial opacity={1} transparent={true} map={videoTexture}/>
             </mesh>
         ) : null;
     }
@@ -48,7 +48,7 @@ const ArtistMesh = ({item, position, opacity}) => {
                     maxWidth={5}
                     fontSize={0.16}
                     lineHeight={2}
-                    fillOpacity={opacity}
+                    fillOpacity={1}
                 >
                     {item.content}
                 </Text>

@@ -6,12 +6,13 @@ import ericsonText from "/text/Ericson.txt?raw"
 //const images
 const imgDIOSCURE = "./images/DIOSCURE.jpg"
 const imgRobsch = "./images/ROBSCHPress2.jpg"
-
 const imgEric = "./images/Ericson.jpg"
 const imgSubT = "./images/Sub-T.jpeg"
 //const videos
 const vidDIOSCURE = "./videos/DIOSCURE.mp4"
 const vidRobsch = "./videos/Robsch.mov"
+const vidEricson = "./videos/Ericson.mp4"
+const vidSubT = "./videos/Sub-T.mp4"
 //const icons
 const iconInstagram = "./images/Instagram/InstagramGlyphWhite.svg"
 const iconSoundcloud = "./images/Soundcloud/Soundcloud-white.svg"
@@ -82,7 +83,8 @@ export const artists = [
     {
         name: "Ericson", items: [
             {type: "image", src: imgEric},
-            {type: "text", content: ericsonText}
+            {type: "text", content: ericsonText},
+            {type: "video", src: vidEricson}
         ],
         links: [
             {
@@ -105,7 +107,8 @@ export const artists = [
     {
         name: "Sub-T", items: [
             {type: "image", src: imgSubT},
-            {type: "text", content: SubTText}
+            {type: "text", content: SubTText},
+            {type: "video", src: vidSubT}
         ],
         links: [
             {

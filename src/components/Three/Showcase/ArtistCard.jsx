@@ -5,7 +5,7 @@ import * as THREE from "three"
 
 const ArtistCard = ({index, scrollProgress}) => {
     //every 20 units next artist. NOT DYNAMIC !!!
-    const DIST = 20
+    const DIST = 40
     const targetZ = useMemo(() => -index * (DIST), [index])
     const artist = artists[index]
 
@@ -17,8 +17,8 @@ const ArtistCard = ({index, scrollProgress}) => {
         <group>
             {artist.items.map((item, index) => {
                 const x = index % 2 === 0 ? -4 : 4
-                const y = -(index - 1) * 2
-                const zOffset = -index * 5
+                const y = -(index - 0.5) * 2
+                const zOffset = -index * 10
                 return <ArtistMesh opacity={opacity} key={index} item={item} position={[x, y, targetZ + zOffset]}/>
             })}
         </group>
