@@ -12,7 +12,7 @@ const imgSubT = "./images/Sub-T.jpeg"
 const vidDIOSCURE = "./videos/DIOSCURE.mp4"
 const vidRobsch = "./videos/Robsch.mov"
 const vidEricson = "./videos/Ericson.mp4"
-const vidSubT = "./videos/Sub-T.mp4"
+const vidSubT = "./videos/SubT.mp4"
 //const icons
 const iconInstagram = "./images/Instagram/InstagramGlyphWhite.svg"
 const iconSoundcloud = "./images/Soundcloud/Soundcloud-white.svg"
@@ -48,6 +48,10 @@ export const artists = [
                 imgPath: iconSpotify,
                 label: "Spotify",
                 url: "https://open.spotify.com/artist/6QaBwqAKNWd5l2Ow2CjUqv?si=Kut6WxXmRtShv67eAHr1Aw"
+            }, {
+                imgPath: iconYouTube,
+                label: "YouTube",
+                url: "https://www.youtube.com/watch?v=UHNEF-c1ayE"
             }
         ]
     },
@@ -76,7 +80,7 @@ export const artists = [
             {
                 imgPath: iconYouTube,
                 label: "YouTube",
-                url: "https://www.youtube.com/watch?v=mK9nD6DWKxA&t=1140s"
+                url: "https://www.youtube.com/watch?v=8TpB74xdjSE"
             }
         ]
     },
@@ -101,6 +105,11 @@ export const artists = [
                 imgPath: iconSpotify,
                 label: "Spotify",
                 url: "https://open.spotify.com/artist/59v9zXObOlNsW2VZa65l06?si=djw1JYdSQ_u46AKEkmtYPQ"
+            },
+            {
+                imgPath: iconYouTube,
+                label: "YouTube",
+                url: "https://www.youtube.com/watch?v=T3SpFhvyG5w"
             }
         ]
     },
@@ -120,7 +129,11 @@ export const artists = [
                 imgPath: iconSoundcloud,
                 label: "Soundcloud",
                 url: "https://soundcloud.com/thereal-sub-t"
-            },
+            }, {
+                imgPath: iconYouTube,
+                label: "YouTube",
+                url: "https://www.youtube.com/watch?v=EXzxuaAdBpg"
+            }
         ]
     }
 
@@ -128,7 +141,7 @@ export const artists = [
 
 export const navLinks = [
     {
-        name: "Index",
+        name: "HomePage",   //Index
         link: "#hero",
     },
     {
@@ -136,7 +149,7 @@ export const navLinks = [
         link: "#work",
     },
     {
-        name: "Contact",
+        name: "Impressum",    //Contact
         link: "#contact",
     },
 ]
