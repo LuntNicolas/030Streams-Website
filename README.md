@@ -12,11 +12,13 @@ An immersive web experience blending the boundaries between design and code. Thi
 
 
 ## Tech Stack
-* Framework: React (Vite)
-* Language: TypeScript
-* 3D/Graphics: Three.js / React Three Fiber / @react-three/drei
-* Animation: GSAP (GreenSock Animation Platform)
-* Styling: Tailwind CSS
+* **Framework:** React (Vite)
+* **Language:** JavaScript
+* **3D/Graphics:** Three.js (React Three Fiber & @react-three/drei)
+* **Shaders:** Custom **GLSL** (Vertex & Fragment Shaders)
+* **Animation:** GSAP (GreenSock Animation Platform)
+* **Styling:** Tailwind CSS
 
+  
 ## Project Insides
 This project focused on how micro-interactions and 3D elements can enhance user engagement. A primary technical challenge was synchronizing 2D UI overlays with 3D model states, which I solved by implementing centralized state management and precise GSAP timelines.
